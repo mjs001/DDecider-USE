@@ -1,0 +1,23 @@
+form {
+  margin-top: 3rem;
+}
+
+form input[name="zip"],
+form input[name="country"] {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  border-bottom: 2px solid whitesmoke;
+  border-radius: 0px;
+}
+
+form input:focus {
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+.container {
+  width: 60%;
+  height: 70%;
+  background-image: linear-gradient(rgb(66, 148, 255), rgba(25, 27, 36, 0.979));
+}

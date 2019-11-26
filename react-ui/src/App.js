@@ -3,6 +3,8 @@ import "./App.css";
 import WeatherApp from "./components/weather.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "weather-icons/css/weather-icons.css";
+import Form from "./components/form.component";
+
 // api call api.openweathermap.org/data/2.5/weather?q=London,uk
 const API_key = "99c5fcadf6e8ae94203e609d9c409ee5";
 
@@ -10,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      city: undefined,
+      zipCode: undefined,
       country: undefined,
       icon: undefined,
       main: undefined,
@@ -20,7 +22,6 @@ class App extends React.Component {
       description: "",
       error: false
     };
-    this.getWeather();
 
     this.weatherIcon = {
       Thunderstorm: "wi-thunderstorm",
@@ -66,31 +67,40 @@ class App extends React.Component {
     }
   }
 
-  getWeather = async () => {
-    const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_key}`
-    );
-    const response = await api_call.json();
+  getWeather = async e => {
+    e.preventDefault();
 
-    console.log(response);
+    const zip = e.target.elements.zip.value;
+    const country = e.target.elements.country.value;
+    if (zip && country) {
+      const api_call = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?zip=${zip},${country}&appid=${API_key}`
+      );
+      const response = await api_call.json();
 
-    this.setState({
-      city: response.name,
-      country: response.sys.country,
-      fahrenheit: this.calFahrenheit(response.main.temp),
-      temp_max: this.calFahrenheit(response.main.temp_max),
-      temp_min: this.calFahrenheit(response.main.temp_min),
-      description: response.weather[0].description
-    });
+      console.log(response);
 
-    this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+      this.setState({
+        zip: `${response.name}, ${response.sys.country}`,
+        country: response.sys.country,
+        fahrenheit: this.calFahrenheit(response.main.temp),
+        temp_max: this.calFahrenheit(response.main.temp_max),
+        temp_min: this.calFahrenheit(response.main.temp_min),
+        description: response.weather[0].description
+      });
+
+      this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+    } else {
+      this.setState({ error: true });
+    }
   };
 
   render() {
     return (
       <div className="App">
+        <Form loadweather={this.getWeather} error={this.state.error} />
         <WeatherApp
-          city={this.state.city}
+          zip={this.state.zip}
           country={this.state.country}
           temp_fahrenheit={this.state.fahrenheit}
           temp_max={this.state.temp_max}
