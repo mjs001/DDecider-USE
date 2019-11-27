@@ -2,8 +2,44 @@
   margin-left: 500px;
   font-size: 1.2rem;
   color: rgb(255, 44, 44) !important;
+  width: 100%;
 }
 
 .overallHomeImg {
   width: 100%;
+}
+
+nav {
+  width: 98%;
+  margin: 0 auto;
+}
+
+.steps {
+  text-align: center;
+  width: 40%;
+  padding-bottom: 1%;
+  background-color: rgb(189, 12, 12);
+  color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 3%;
+  box-shadow: 2px 4px 4px 2px maroon;
+}
+
+.steps:hover {
+  color: whitesmoke;
+  box-shadow: 4px 8px 4px 4px rgb(56, 1, 1);
+  background-color: rgb(153, 10, 10);
+}
+
+.results {
+  text-align: center;
+  width: 50%;
+  padding-bottom: 1%;
+  background-color: rgb(14, 67, 182);
+  color: whitesmoke;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 3%;
+  box-shadow: 2px 4px 4px 2px rgb(15, 51, 80);
 }

@@ -2,12 +2,12 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.html">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a className="navbar-brand" href="index.html">
         Home
       </a>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -15,24 +15,24 @@ const Navigation = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
             <span>
-              <a class="nav-link" href="about.html">
-                About <span class="sr-only">(current)</span>
+              <a className="nav-link" href="about.html">
+                About <span className="sr-only">(current)</span>
               </a>
             </span>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li className="nav-item">
+            <a className="nav-link" href="#">
               DDecider
             </a>
           </li>
-          <span class="nameNav navbar-text">DDecider</span>
+          <span className="nameNav navbar-text">DDecider</span>
         </ul>
       </div>
     </nav>

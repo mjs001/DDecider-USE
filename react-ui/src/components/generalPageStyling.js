@@ -1,17 +1,15 @@
 import React from "react";
-import { Card, Button, CardTitle, CardText } from "reactstrap";
-const generalStyles = () => {
+import Form from "./form.component";
+const Step1 = () => {
   return (
-    <div>
-      <Card body outline color="danger">
-        <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>
-          With supporting text below as a natural lead-in to additional content.
-        </CardText>
-        <Button>Button</Button>
-      </Card>
+    <div className="steps">
+      <h4>Step 1:</h4>
+      <p>
+        The first step is to enter your zipcode and country so we can figure out
+        what the weather is like in your area.
+      </p>
     </div>
   );
 };
 
-export default generalStyles;
+export default Step1;
