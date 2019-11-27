@@ -1,0 +1,32 @@
+form {
+  margin-top: 3rem;
+  padding: 5px;
+}
+
+form input[name="zip"],
+form input[name="country"] {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  border-bottom: 2px solid whitesmoke;
+  border-radius: 0px;
+}
+
+form input:focus {
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+.container {
+  width: 60%;
+  height: 75%;
+  background-image: linear-gradient(#4a9cff, rgba(255, 108, 108, 0.979));
+}
+
+.getWeatherBtn {
+  background-image: linear-gradient(#f7ff85, rgba(253, 126, 7, 0.979));
+}
+
+.getWeatherBtn:hover {
+  background-image: linear-gradient(#b2bd18, rgba(209, 118, 33, 0.979));
+}
