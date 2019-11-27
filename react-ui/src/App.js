@@ -1,9 +1,15 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 import WeatherApp from "./components/weather.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "weather-icons/css/weather-icons.css";
 import Form from "./components/form.component";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navigation from "./components/Navigation";
+import generalStyles from "./components/generalPageStyling";
+import OverallDecider from "./components/OverallDecider";
+import restaurantLocator from "./components/restaurantLocator";
+import "./components/Navigation.css";
 
 // api call api.openweathermap.org/data/2.5/weather?q=London,uk
 const API_key = "99c5fcadf6e8ae94203e609d9c409ee5";
@@ -97,18 +103,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Form loadweather={this.getWeather} error={this.state.error} />
-        <WeatherApp
-          zip={this.state.zip}
-          country={this.state.country}
-          temp_fahrenheit={this.state.fahrenheit}
-          temp_max={this.state.temp_max}
-          temp_max={this.state.temp_min}
-          description={this.state.description}
-          weatherIcon={this.state.icon}
-        />
-      </div>
+      <>
+        <Navigation />
+        <generalStyles />
+        <div className="App">
+          <Form loadweather={this.getWeather} error={this.state.error} />
+          <WeatherApp
+            zip={this.state.zip}
+            country={this.state.country}
+            temp_fahrenheit={this.state.fahrenheit}
+            temp_max={this.state.temp_max}
+            temp_min={this.state.temp_min}
+            description={this.state.description}
+            weatherIcon={this.state.icon}
+          />
+        </div>
+      </>
     );
   }
 }
